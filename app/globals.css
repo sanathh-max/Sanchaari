@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --color-night: #0E1B1A;
+  --color-night-card: #152725;
+  --color-night-border: #233D3A;
+  --color-paper: #F4EEE1;
+  --color-paper-light: #FAF7F0;
+  --color-sand: #EAE1D0;
+  --color-card: #FFFFFF;
+  --color-primary: #2B5F5A;
+  --color-primary-dark: #1A3E3B;
+  --color-saffron: #E0A030;
+  --color-saffron-light: #F7BA4A;
+  --color-brick: #B5502E;
+  --color-brick-dark: #933E21;
+  --color-muted: #6C7976;
+  --color-border: #E0D7C4;
+
+  --font-serif: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-work-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+:root {
+  --background: #F4EEE1;
+  --foreground: #0E1B1A;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-work-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* 35mm film grain texture for cinematic dark sections */
+.film-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+/* Lenis smooth scrolling rules */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Accessible focus states with warm saffron glow */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #E0A030;
+  outline-offset: 3px;
+}
+
+/* Hide scrollbar for clean horizontal photo rails while maintaining scrollability */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
